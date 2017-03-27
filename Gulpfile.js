@@ -1,0 +1,14 @@
+var gulp = require('gulp');
+var less = require('gulp-less');
+
+gulp.task('watch', function() {
+  gulp.watch(['./public/styles/*.less'], ['compile-less'])
+});
+
+gulp.task('compile-less', function() {
+  gulp.src('./public/styles/*.less')
+  .pipe(less())
+  .pipe(gulp.dest('./public/styles/'))
+});
+
+gulp.task('default', ['compile-less', 'watch']);
